@@ -173,13 +173,22 @@ body::-webkit-scrollbar-thumb {
 }
 
 .circle {
-  height: 24px;
-  width: 24px;
-  border-radius: 24px;
-  background-color: black;
   position: fixed;
-  top: 0;
-  left: 0;
+  /* Ensures circles are positioned relative to the viewport */
+  border-radius: 50%;
+  /* Makes circles round */
+  width: 24px;
+  /* Circle width */
+  height: 24px;
+  /* Circle height */
   pointer-events: none;
-  z-index: 9;
+  z-index: 50;
+  
+  /* Prevents the circles from blocking mouse events */
+  transition: transform 0.5s ease, background-color 0.5s ease;
+  /* Smooth transition for scaling and color change */
+  border: 2px solid #1565c000;
+  /* White border with some opacity */
+  box-shadow: 0 0 10px #1565c049;
+  /* Adds a soft glow effect */
 }
