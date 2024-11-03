@@ -1,5 +1,5 @@
 
-import { HackathonCard } from "@/components/hackathon-card";
+import { LayoutGridDemo } from "@/components/LayoutGridDemo";
 import BlurFade from "@/components/magicui/blur-fade"; // Keep this
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -61,17 +61,7 @@ export default function Page() {
         </div>
       </section>
   <section id="photos">
-      <div className="columns-2 gap-4 sm:columns-3">
-        {images.map((imageUrl, idx) => (
-          <BlurFade key={imageUrl} delay={0.25 + idx * 0.05} inView>
-            <img
-              className="mb-4 size-full rounded-lg object-contain"
-              src={imageUrl}
-              alt={`Random stock image ${idx + 1}`}
-            />
-          </BlurFade>
-        ))}
-      </div>
+        <LayoutGridDemo />
     </section>
 
     </main>
