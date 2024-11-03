@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from 'react';
 
-const AnimatedCircles = () => {
+const AnimatedCircles: React.FC = () => {
     const circlesRef = useRef<HTMLDivElement[]>([]);
     const coords = { x: 0, y: 0 };
     const colors = [...Array(20).fill("#ffffff00"), ...Array(30).fill("#ffffff00")];
@@ -22,9 +22,9 @@ const AnimatedCircles = () => {
             coords.x = e.clientX;
             coords.y = e.clientY;
 
-            circles.forEach((circle) => {
+            circles.forEach((circle, index) => {
                 if (circle) {
-                    circle.style.backgroundColor = colors[circles.indexOf(circle) % colors.length];
+                    circle.style.backgroundColor = colors[index % colors.length];
                     circle.style.border = '2px solid transparent'; // Reset border color
                 }
             });
@@ -53,18 +53,18 @@ const AnimatedCircles = () => {
 
             circles.forEach((circle, index) => {
                 if (circle) {
-                    const scale = (circles.length - index) / circles.length;
-                    circle.style.left = `${x - 12}px`;
+                    const scale = (circles.length - index) / circles.length; // Scaling the circle
+                    circle.style.left = `${x - 12}px`; // Center the circle on the mouse
                     circle.style.top = `${y - 12}px`;
                     circle.style.transform = `scale(${scale})`;
 
-                    const nextCircle = circles[index + 1] || circles[0];
-                    x += (nextCircle.offsetLeft - x + 12) * 0.2;
+                    const nextCircle = circles[index + 1] || circles[0]; // Next circle or wrap to first
+                    x += (nextCircle.offsetLeft - x + 12) * 0.2; // Adjust for next circle position
                     y += (nextCircle.offsetTop - y + 12) * 0.2;
                 }
             });
 
-            requestAnimationFrame(animateCircles);
+            requestAnimationFrame(animateCircles); // Continue animation
         };
 
         animateCircles();
@@ -90,12 +90,16 @@ const AnimatedCircles = () => {
             ))}
             <style jsx>{`
                 .circle {
-                    position: absolute;
+                    position: fixed; /* Keep this to follow the viewport */
+                    border-radius: 50%;
                     width: 24px;
                     height: 24px;
-                    border-radius: 50%;
-                    transition: background-color 0.3s ease, border 0.3s ease;
-                    pointer-events: none; // Prevent circles from interfering with mouse events
+                    pointer-events: none; /* Prevent mouse events on the circles */
+                    z-index: 50; /* Ensure they are above other elements */
+                    transition: transform 0.5s ease, background-color 0.5s ease;
+                    border: 2px solid #1565c059; /* Border color */
+                    box-shadow: 0 0 10px #1565c07e; /* Shadow for effect */
+                    background-color: #1565c0; /* Default color for visibility */
                 }
             `}</style>
         </>
