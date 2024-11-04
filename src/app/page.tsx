@@ -81,10 +81,9 @@ export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
       <section id="banner" className="relative mb-8" >
-        <div>
-          <Image src="" alt="" className="w-full  " />
+        <div className="">
           <BlurFade delay={BLUR_FADE_DELAY}>
-            <Image className="text-3xl font-bold tracking-tighter sm:text-5xl rounded-tl-xl rounded-tr-xl" src={DATA.banner} alt="banner" width={1000} height={0}/>
+            <Image className="text-3xl font-bold tracking-tighter sm:text-5xl rounded-tl-xl rounded-tr-xl" src={DATA.banner || 'https://media.licdn.com/dms/image/v2/D4D16AQFM5aIrJMrgTg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1729114096797?e=1736380800&v=beta&t=NeyVFu4u0k8kLpFmVsxLlm5z3oqCMKOCqu8Ag8M7UYE'} alt="banner" width={1000} height={100}/>
           </BlurFade>
           
         </div>
