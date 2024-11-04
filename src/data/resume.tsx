@@ -2,9 +2,9 @@ import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Nurbek Abduaxatov ",
+  name: "Nurbek Abdiaxatov ",
   initials: "NA",
-  url: "https://abduaxatov-nurbek.vercel.app/",
+  url: "https://nurbek-abdiaxatov.vercel.app/",
   location: "Uzbekistan, Andijon, Bo'ston",
   locationLink: "https://maps.app.goo.gl/Eubd9TkVLZhBkxD16",
 
@@ -13,7 +13,7 @@ export const DATA = {
   summary:
     "I am recognized as a professional in the field of software development. My primary areas of expertise include React, Next.js, and Tailwind CSS. I am passionate about creating user interfaces, fetching dynamic data, and incorporating visualization elements.",
   avatarUrl: "/me.jpeg",
-  banner: "/Nurbek_Abduaxatov.svg",
+  banner: "/banner.svg",
   skills: [
     "React",
     "Next.js",
