@@ -7,11 +7,13 @@ export const DATA = {
   url: "https://abduaxatov-nurbek.vercel.app/",
   location: "Uzbekistan, Andijon, Bo'ston",
   locationLink: "https://maps.app.goo.gl/Eubd9TkVLZhBkxD16",
+
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Telegram.",
   summary:
     "I am recognized as a professional in the field of software development. My primary areas of expertise include React, Next.js, and Tailwind CSS. I am passionate about creating user interfaces, fetching dynamic data, and incorporating visualization elements.",
   avatarUrl: "/me.jpeg",
+  banner: "/Nurbek_Abduaxatov.svg",
   skills: [
     "React",
     "Next.js",

@@ -13,6 +13,7 @@ import IconCloud from "@/components/magicui/icon-cloud";
 import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/contact";
+import Image from "next/image";
 const slugs = [
   "typescript",
   "javascript",
@@ -79,6 +80,30 @@ export default function Page() {
   };
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
+      <section id="banner" className="relative mb-8" >
+        <div>
+          <Image src="" alt="" className="w-full  " />
+          <BlurFade delay={BLUR_FADE_DELAY}>
+            <Image className="text-3xl font-bold tracking-tighter sm:text-5xl rounded-tl-xl rounded-tr-xl" src={DATA.banner} alt="banner" width={1000} height={0}/>
+          </BlurFade>
+          
+        </div>
+        <div className="absolute top-1/1 left-1/2-translate-x-1/2 -translate-y-1/2">
+          <BlurFade delay={BLUR_FADE_DELAY}>
+            <div className="border rounded-full overflow-hidden 
+                    w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32">
+              <Image
+                alt={DATA.name}
+                src={DATA.avatarUrl}
+                className="object-cover w-full h-full"
+                width={1000} height={100}
+              />
+              <div className="fallback-text text-center">{DATA.initials}</div>
+            </div>
+          </BlurFade>
+        </div>
+
+      </section>
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -100,12 +125,6 @@ export default function Page() {
                 text={DATA.description}
               />
             </div>
-            <BlurFade delay={BLUR_FADE_DELAY}>
-              <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-                <AvatarFallback>{DATA.initials}</AvatarFallback>
-              </Avatar>
-            </BlurFade>
           </div>
         </div>
         
