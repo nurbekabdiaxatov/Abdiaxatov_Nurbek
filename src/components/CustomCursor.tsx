@@ -6,7 +6,7 @@ const AnimatedCircles: React.FC = () => {
     const circlesRef = useRef<HTMLDivElement[]>([]);
     const coords = { x: 0, y: 0 };
     const colors = [...Array(20).fill("#ffffff00"), ...Array(30).fill("#ffffff00")];
-    const stationaryColor = "#1565c000"; // Color when stationary
+    const stationaryColor = "#1565c000"; 
 
     useEffect(() => {
         const circles = circlesRef.current;
@@ -96,10 +96,17 @@ const AnimatedCircles: React.FC = () => {
                     height: 24px;
                     pointer-events: none; /* Prevent mouse events on the circles */
                     z-index: 50; /* Ensure they are above other elements */
-                    transition: transform 0.5s ease, background-color 0.5s ease;
-                    border: 2px solid #1565c059; /* Border color */
+                    transition: transform 1s ease, background-color 0.5s ease;
+                    
                     box-shadow: 0 0 10px #1565c07e; /* Shadow for effect */
                     background-color: #1565c0; /* Default color for visibility */
+                }
+                    :hover {
+                    background-color: #1565c07e; /* Change color on hover */
+                }
+                @media (max-width: 600px) {
+                .circle {
+                display: none;
                 }
             `}</style>
         </>
