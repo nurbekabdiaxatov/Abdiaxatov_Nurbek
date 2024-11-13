@@ -16,7 +16,7 @@ export default function Page() {
   return (
     <main className="flex flex-col space-y-10 min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
       <section id="projects">
-        <div className="space-y-12 w-full py-0">
+        <div className="space-y-12 w-full py-0 mb-20">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
             <div className="flex flex-col items-center justify-center space-y-4 text-center">
               <div className="space-y-2">
@@ -56,7 +56,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <section>
+      {/* <section>
         <div className="h-[40rem] w-full flex items-center justify-center ">
           <PinContainer
             title="/ui.aceternity.com"
@@ -75,7 +75,7 @@ export default function Page() {
             </div>
           </PinContainer>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 } 
