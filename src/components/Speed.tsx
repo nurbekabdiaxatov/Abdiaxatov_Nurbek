@@ -19,9 +19,19 @@ const actions = [
 export default function BasicSpeedDial() {
     const [isVisible, setIsVisible] = React.useState(false);
 
-    // Hover holatida ko'rsatish uchun toggle funksiyasi
-    const handleHover = (show: boolean) => {
-        setIsVisible(show);  // visibility holatini o'zgartirish
+    // Hover holatida ko'rsatish
+    const handleMouseEnter = () => {
+        setIsVisible(true);
+    };
+
+    // Hoverdan chiqqanda yashirish
+    const handleMouseLeave = () => {
+        setIsVisible(false);
+    };
+
+    // Bosish orqali yashirish
+    const handleClick = () => {
+        setIsVisible((prev) => !prev); // visibility holatini o'zgartirish
     };
 
     // Faylni yuklash
@@ -41,8 +51,10 @@ export default function BasicSpeedDial() {
                     ariaLabel="SpeedDial basic example"
                     sx={{ position: 'absolute', bottom: 16, right: 16 }}
                     icon={<SpeedDialIcon />}
-                    onMouseEnter={() => handleHover(true)}  // Hoverga kirganda ko'rsatiladi
-                    onMouseLeave={() => handleHover(false)}  // Hoverdan chiqqanda yashirinadi
+                    onMouseEnter={handleMouseEnter}  // Hoverga kirganda ko'rsatiladi
+                    onMouseLeave={handleMouseLeave}  // Hoverdan chiqqanda yashirinadi
+                    onClick={handleClick}  // Bosish orqali visibilityni o'zgartirish
+                    open={isVisible}  // `SpeedDial`ni ochish
                 >
                     {actions.map((action) => (
                         <SpeedDialAction
