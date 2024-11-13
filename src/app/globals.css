@@ -188,21 +188,21 @@ body::-webkit-scrollbar-thumb {
 
 .MuiButtonBase-root {
   border-radius: 6px !important;
-  @apply z-50 pointer-events-auto relative mx-auto flex items-center px-1 bg-background shadow-2xl custom-box-shadow transform-gpu text-black ;
+  @apply z-50 pointer-events-auto relative mx-auto flex items-center px-1 bg-background shadow-2xl custom-box-shadow transform-gpu text-black !important;
 
   /* Apply dark mode classes directly */
-  @apply dark:text-white;
+  @apply dark:text-white !important;
 
   /* Dark mode custom utilities */
   .dark & {
-    @apply custom-box-shadow-dark custom-border-dark;
+    @apply custom-box-shadow-dark custom-border-dark !important;
   }
         &:hover {
-          @apply bg-[#f5f5f5]  shadow-lg;
+          @apply bg-[#f5f5f5]  shadow-lg !important;
         }
     
         /* Dark mode hover effect */
         .dark &:hover {
-          @apply bg-secondary text-gray-200 custom-box-shadow-dark;
+          @apply bg-secondary text-gray-200 custom-box-shadow-dark !important;
         }
         }
