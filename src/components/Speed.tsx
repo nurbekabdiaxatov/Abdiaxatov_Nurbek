@@ -35,7 +35,7 @@ export default function BasicSpeedDial() {
     };
 
     // Boshqa joylarga bosganda SpeedDialni yopish
-    const handleOutsideClick = (e: React.MouseEvent) => {
+    const handleOutsideClick = (e: MouseEvent) => {  // Use native MouseEvent here
         const speedDialElement = document.querySelector('.MuiSpeedDial-root');
         if (speedDialElement && !speedDialElement.contains(e.target as Node)) {
             setIsVisible(false); // Agar SpeedDialdan tashqariga bosilgan bo'lsa, uni yashirish
