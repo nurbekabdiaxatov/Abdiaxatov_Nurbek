@@ -10,38 +10,53 @@ import Tel from '@mui/icons-material/Phone';
 import DescriptionIcon from '@mui/icons-material/Description';
 
 const actions = [
-    { icon: <DescriptionIcon />, name: 'Resume', url:  "https://drive.google.com/file/d/1wYWYQWIGVN5NBzwLsgT8wodFDkx8jiY8/view?usp=sharing"}, 
+    { icon: <DescriptionIcon />, name: 'Resume', url: "https://drive.google.com/file/d/1wYWYQWIGVN5NBzwLsgT8wodFDkx8jiY8/view?usp=sharing" },
     { icon: <Telegram />, name: 'Telegram', url: "https://t.me/Abdiaxatov" },
     { icon: <Email />, name: 'Email', url: "mailto:abduaxatov007@gmail.com" },
     { icon: <Tel />, name: 'Phone', url: "tel:+998940192117" }
 ];
 
 export default function BasicSpeedDial() {
+    const [isVisible, setIsVisible] = React.useState(false);
+
+    // Hover holatida ko'rsatish uchun toggle funksiyasi
+    const handleHover = (show: boolean) => {
+        setIsVisible(show);  // visibility holatini o'zgartirish
+    };
+
+    // Faylni yuklash
     const handleDownload = (url: string) => {
         const link = document.createElement('a');
         link.href = url;
-        link.download = url.split('/').pop() || ''; // Extract filename from URL
+        link.download = url.split('/').pop() || ''; // Fayl nomini olish
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
     };
 
     return (
-        <div className="mt-[-232px]" >
-            <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }} >
+        <div className="mt-[-232px]">
+            <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
                 <SpeedDial
                     ariaLabel="SpeedDial basic example"
                     sx={{ position: 'absolute', bottom: 16, right: 16 }}
                     icon={<SpeedDialIcon />}
+                    onMouseEnter={() => handleHover(true)}  // Hoverga kirganda ko'rsatiladi
+                    onMouseLeave={() => handleHover(false)}  // Hoverdan chiqqanda yashirinadi
                 >
                     {actions.map((action) => (
                         <SpeedDialAction
                             key={action.name}
                             icon={action.icon}
                             tooltipTitle={action.name}
-                            
-                            onClick={() => {
-                                if (action.name === 'Resume') { // Corrected comparison
+                            sx={{
+                                visibility: isVisible ? 'visible' : 'hidden',  // Ko'rinish holati
+                                opacity: isVisible ? 1 : 0, // Ko'rinish
+                                transition: 'opacity 0.3s ease, visibility 0s 0.3s', // Silliq o'tish
+                            }}
+                            onClick={(e) => {
+                                e.stopPropagation();  // Eventni to'xtatib, faqat harakatni bajarish
+                                if (action.name === 'Resume') {
                                     handleDownload(action.url);
                                 } else {
                                     window.open(action.url, '_blank');
