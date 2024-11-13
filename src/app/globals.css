@@ -206,3 +206,23 @@ body::-webkit-scrollbar-thumb {
           @apply bg-secondary text-gray-200 custom-box-shadow-dark !important;
         }
         }
+
+
+.circle {
+  @apply fixed w-6 h-6 rounded-full pointer-events-none z-50 transition-transform ease-in-out duration-500;
+  background-color: rgb(0, 0, 0);
+}
+
+/* Dark mode uchun */
+@media (prefers-color-scheme: dark) {
+  .circle {
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+  }
+}
+
+/* Kichik ekranlarda yashirish */
+@media (max-width: 600px) {
+  .circle {
+    display: none;
+  }
+}
