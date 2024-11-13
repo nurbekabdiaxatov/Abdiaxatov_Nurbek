@@ -19,19 +19,9 @@ const actions = [
 export default function BasicSpeedDial() {
     const [isVisible, setIsVisible] = React.useState(false);
 
-    // Hover holatida ko'rsatish
-    const handleMouseEnter = () => {
-        setIsVisible(true);
-    };
-
-    // Hoverdan chiqqanda yashirish
-    const handleMouseLeave = () => {
-        setIsVisible(false);
-    };
-
-    // Bosish orqali yashirish
+    // Bosish orqali visibilityni o'zgartirish
     const handleClick = () => {
-        setIsVisible((prev) => !prev); // visibility holatini o'zgartirish
+        setIsVisible((prev) => !prev); // visibility holatini teskari o'zgartirish
     };
 
     // Faylni yuklash
@@ -44,6 +34,22 @@ export default function BasicSpeedDial() {
         document.body.removeChild(link);
     };
 
+    // Boshqa joylarga bosganda SpeedDialni yopish
+    const handleOutsideClick = (e: React.MouseEvent) => {
+        const speedDialElement = document.querySelector('.MuiSpeedDial-root');
+        if (speedDialElement && !speedDialElement.contains(e.target as Node)) {
+            setIsVisible(false); // Agar SpeedDialdan tashqariga bosilgan bo'lsa, uni yashirish
+        }
+    };
+
+    // Eventni qo'shish
+    React.useEffect(() => {
+        document.addEventListener('click', handleOutsideClick); // Barcha bosishlarni tinglash
+        return () => {
+            document.removeEventListener('click', handleOutsideClick); // Cleanup
+        };
+    }, []);
+
     return (
         <div className="mt-[-232px]">
             <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
@@ -51,8 +57,6 @@ export default function BasicSpeedDial() {
                     ariaLabel="SpeedDial basic example"
                     sx={{ position: 'absolute', bottom: 16, right: 16 }}
                     icon={<SpeedDialIcon />}
-                    onMouseEnter={handleMouseEnter}  // Hoverga kirganda ko'rsatiladi
-                    onMouseLeave={handleMouseLeave}  // Hoverdan chiqqanda yashirinadi
                     onClick={handleClick}  // Bosish orqali visibilityni o'zgartirish
                     open={isVisible}  // `SpeedDial`ni ochish
                 >

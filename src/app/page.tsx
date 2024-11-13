@@ -79,7 +79,7 @@ export default function Page() {
     }, 250);
   };
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10">
+    <main className="flex flex-col  space-y-10 min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
       <section id="banner" className="relative mb-8" >
         <div className="">
           <BlurFade delay={BLUR_FADE_DELAY}>
