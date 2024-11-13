@@ -1,7 +1,7 @@
 "use client"
 import * as React from "react"
-import Autoplay from "embla-carousel-autoplay"
-
+import Autoplay from "embla-carousel-autoplay" // Only import once
+import EmblaCarouselReact from 'embla-carousel-react'
 import { Card, CardContent } from "@/components/ui/card"
 import {
     Carousel,
@@ -13,15 +13,15 @@ import {
 
 export function CarouselPlugin() {
     const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: true }) // Autoplay plugin configuration
     )
 
     return (
         <Carousel
-            plugins={[plugin.current]}
+            plugins={[plugin.current]} // Using the autoplay plugin
             className="w-full max-w-xs"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
+            onMouseEnter={plugin.current.stop} // Stop autoplay on mouse enter
+            onMouseLeave={plugin.current.reset} // Reset autoplay on mouse leave
         >
             <CarouselContent>
                 {Array.from({ length: 5 }).map((_, index) => (

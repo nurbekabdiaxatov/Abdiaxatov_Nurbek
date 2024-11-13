@@ -51,13 +51,13 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/nurbek2107",
+        url: "https://github.com/nurbekabdiaxatov",
         icon: Icons.github,
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/nurbek2107/",
+        url: "https://www.linkedin.com/in/nurbekabdiaxatov",
         icon: Icons.linkedin,
 
         navbar: true,
@@ -70,13 +70,13 @@ export const DATA = {
       },
       Telegram: {
         name: "Telegram",
-        url: "https://t.me/JS_deveIoper",
+        url: "https://t.me/Abdiaxatov",
         icon: Icons.Telegram,
         navbar: true,
       },
       email: {
         name: "Send Email",
-        url: "mailto:abduaxatov007@gmail.com",
+        url: "mailto:nurbekabdiaxatov@gmail.com",
         icon: Icons.email,
         navbar: true,
       }
