@@ -28,7 +28,7 @@ export default function BasicSpeedDial() {
 
     return (
         <div className="mt-[-232px]" >
-            <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }}>
+            <Box sx={{ height: 320, transform: 'translateZ(0px)', flexGrow: 1 }} >
                 <SpeedDial
                     ariaLabel="SpeedDial basic example"
                     sx={{ position: 'absolute', bottom: 16, right: 16 }}
@@ -39,6 +39,7 @@ export default function BasicSpeedDial() {
                             key={action.name}
                             icon={action.icon}
                             tooltipTitle={action.name}
+                            
                             onClick={() => {
                                 if (action.name === 'Resume') { // Corrected comparison
                                     handleDownload(action.url);

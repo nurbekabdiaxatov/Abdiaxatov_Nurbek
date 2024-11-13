@@ -13,17 +13,17 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 export default function Navbar() {
-    // useEffect(() => {
-    //   window.$crisp = []; 
-    //   window.CRISP_WEBSITE_ID = "70eb2ee0-be96-463b-8c6e-8df7c87b1ccc"; 
-    //   (function () {
-    //     const d = document;
-    //     const s = d.createElement("script");
-    //     s.src = "https://client.crisp.chat/l.js";
-    //     s.async = true;
-    //     d.getElementsByTagName("head")[0].appendChild(s); 
-    //   })();
-    // }, []);
+  // useEffect(() => {
+  //   window.$crisp = []; 
+  //   window.CRISP_WEBSITE_ID = "70eb2ee0-be96-463b-8c6e-8df7c87b1ccc"; 
+  //   (function () {
+  //     const d = document;
+  //     const s = d.createElement("script");
+  //     s.src = "https://client.crisp.chat/l.js";
+  //     s.async = true;
+  //     d.getElementsByTagName("head")[0].appendChild(s); 
+  //   })();
+  // }, []);
 
   return (
     <div className="h-full">
