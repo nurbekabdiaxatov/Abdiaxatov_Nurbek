@@ -21,6 +21,7 @@
     "@radix-ui/react-separator": "^1.1.0",
     "@radix-ui/react-slot": "^1.0.2",
     "@radix-ui/react-tooltip": "^1.0.7",
+    "@tinymce/tinymce-react": "^5.1.1",
     "@types/mdx": "^2.0.13",
     "canvas-confetti": "^1.9.3",
     "class-variance-authority": "^0.7.0",
