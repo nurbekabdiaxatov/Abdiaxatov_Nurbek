@@ -115,7 +115,7 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
               <div className="relative">
-                <Button className="bg-[#fff0] text-6xl p-0  hover:bg-[#fff0]  shadow-none" onClick={handleClick}>🎉</Button>
+                  <Button className="bg-[#fff0]  p-none  hover:bg-[#fff0]   shadow-none text-3xl font-bold tracking-tighter -mt-6 sm:mt-0 sm:text-5xl xl:text-6xl/none" onClick={handleClick}>🎉</Button>
                 </div>
               </div>
               <BlurFadeText
