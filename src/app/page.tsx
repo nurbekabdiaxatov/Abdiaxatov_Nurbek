@@ -14,6 +14,8 @@ import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/contact";
 import Image from "next/image";
+
+
 const slugs = [
   "typescript",
   "javascript",
@@ -46,10 +48,11 @@ const slugs = [
   "sonarqube",
   "figma",
 ];
-
 const BLUR_FADE_DELAY = 0.04;
 
+import { useTheme } from "@mui/material/styles";
 export default function Page() {
+  
    const handleClick = () => {
     const duration = 5 * 1000;
     const animationEnd = Date.now() + duration;
@@ -85,7 +88,6 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY}>
             <Image className="text-3xl font-bold tracking-tighter sm:text-5xl rounded-tl-xl rounded-tr-xl" src={DATA.banner || 'https://media.licdn.com/dms/image/v2/D4D16AQFM5aIrJMrgTg/profile-displaybackgroundimage-shrink_350_1400/profile-displaybackgroundimage-shrink_350_1400/0/1729114096797?e=1736380800&v=beta&t=NeyVFu4u0k8kLpFmVsxLlm5z3oqCMKOCqu8Ag8M7UYE'} alt="banner" width={1000} height={100}/>
           </BlurFade>
-          
         </div>
         <div className="absolute top-1/1 left-1/2-translate-x-1/2 -translate-y-1/2">
           <BlurFade delay={BLUR_FADE_DELAY}>
@@ -115,7 +117,10 @@ export default function Page() {
                 text={`Hi, I'm ${DATA.name.split(" ")[0]}`}
               />
               <div className="relative">
-                  <Button className="bg-[#fff0]  p-none  hover:bg-[#fff0]   shadow-none text-3xl font-bold tracking-tighter -mt-6 sm:mt-0 sm:text-5xl xl:text-6xl/none" onClick={handleClick}>🎉</Button>
+                  <div
+                    className="bg-[rgba(255,255,255,0)] p-0 hover:bg-[rgba(255,255,255,0)] shadow-none text-3xl font-bold tracking-tighter -mt-3 cursor-pointer sm:text-5xl xl:text-6xl"
+                    onClick={handleClick}
+                  >{DATA.prize}</div>
                 </div>
               </div>
               <BlurFadeText

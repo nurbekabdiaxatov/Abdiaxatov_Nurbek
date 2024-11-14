@@ -7,7 +7,7 @@ export const DATA = {
   url: "https://nurbek-abdiaxatov.vercel.app/",
   location: "Uzbekistan, Andijon, Bo'ston",
   locationLink: "https://maps.app.goo.gl/Eubd9TkVLZhBkxD16",
-
+  prize: " 🎉",
   description:
     "Software Engineer turned Entrepreneur. I love building things and helping people. Very active on Telegram.",
   summary:
@@ -44,7 +44,7 @@ export const DATA = {
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    // { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/project", icon: Icons.Projects, label: "Projects" },
   ],
   contact: {
@@ -97,6 +97,7 @@ export const DATA = {
       description:
         "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
     },
+
   ],
   education: [
     {
