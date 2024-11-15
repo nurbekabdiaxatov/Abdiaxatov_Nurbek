@@ -137,69 +137,68 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Chat Collect",
-      href: "https://chatcollect.com",
-      dates: "Jan 2024 - Feb 2024",
+      title: "Frontend-quiz",
+      href: "https://frontend-quiz-alpha.vercel.app/",
+      dates: "June 2024 - Present",
       active: true,
       description:
-        "With the release of the [OpenAI GPT Store](https://openai.com/blog/introducing-the-gpt-store), I decided to build a SaaS which allows users to collect email addresses from their GPT users. This is a great way to build an audience and monetize your GPT API usage.",
+        "I created a frontend quiz to test our knowledge and improve our skills, and I hope that it will be useful for many frontend developers to help them improve their skills.",
       technologies: [
-        "Next.js",
+        "React.js",
         "Typescript",
-        "PostgreSQL",
-        "Prisma",
         "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
         "Magic UI",
+        "Figma",
+        "Vite",
+        "daisyUI"
       ],
       links: [
         {
           type: "Website",
-          href: "https://chatcollect.com",
-          icon: <Icons.globe className="size-3" />,
-        },
-      ],
-      image: "",
-      video:
-        "https://pub-83c5db439b40468498f97946200806f7.r2.dev/chat-collect.mp4",
-    },
-    {
-      title: "Magic UI",
-      href: "https://magicui.design",
-      dates: "June 2023 - Present",
-      active: true,
-      description:
-        "Designed, developed and sold animated UI components for developers.",
-      technologies: [
-        "Next.js",
-        "Typescript",
-        "PostgreSQL",
-        "Prisma",
-        "TailwindCSS",
-        "Stripe",
-        "Shadcn UI",
-        "Magic UI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://magicui.design",
+          href: "https://frontend-quiz-alpha.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {
           type: "Source",
-          href: "https://github.com/magicuidesign/magicui",
+          href: "https://github.com/nurbekabdiaxatov/Frontend-quiz",
           icon: <Icons.github className="size-3" />,
         },
       ],
       image: "",
-      video: "https://cdn.magicui.design/bento-grid.mp4",
+      video:"/frontendquiz.mp4",
     },
     {
-      title: "llm.report",
-      href: "https://llm.report",
-      dates: "April 2023 - September 2023",
+      title: "Create User",
+      href: "https://react-amaliyot-t58v-i9erm7ojy-nurbek2107s-projects.vercel.app",
+      dates: "June 2024 -  August 2024",
+      active: true,
+      description:
+        "Create Job — is a platform created to find and easily apply for job opportunities in various fields.",
+      technologies: [
+        "TailwindCSS",
+        "React",
+        "Css",
+        "Daisy ui"
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://react-amaliyot-t58v-i9erm7ojy-nurbek2107s-projects.vercel.app",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/nurbekabdiaxatov/react_amaliyot",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "/CreateJob.mp4",
+    },
+    {
+      title: "devfinder",
+      href: "https://github-status-hazel.vercel.app",
+      dates: "April 2024 - April",
       active: true,
       description:
         "Developed an open-source logging and analytics platform for OpenAI: Log your ChatGPT API requests, analyze costs, and improve your prompts.",
