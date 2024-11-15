@@ -10,10 +10,19 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 const BLUR_FADE_DELAY = 0.04;
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
+import Particles from "@/components/ui/particles";
 export default function Page() {
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
   return (
-    <main className="flex flex-col space-y-10 min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
+    <main className="flex flex-col space-y-10 min-h-screen  font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
       <section id="projects">
         <div className="space-y-12 w-full py-0 mb-20">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
@@ -55,6 +64,13 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <Particles
+        className="absolute inset-0 -z-10  h-[100vh] "
+        quantity={500}
+        ease={60}
+        color={color}
+        refresh
+      />
     </main>
   );
 } 

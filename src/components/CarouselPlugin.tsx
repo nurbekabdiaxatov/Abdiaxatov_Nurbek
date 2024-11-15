@@ -28,7 +28,7 @@ export function CarouselPlugin() {
             <CarouselContent className="w-[650px] h-[400px] mx-auto">
                 {images.map((src, index) => (
                     <CarouselItem key={index} className="flex justify-center items-center">
-                        <div className="p-1 relative">
+                        <div className="relative">
                             <Card className="relative w-full h-full max-w-[650px] mx-auto">
                                 <CardContent className="relative w-full h-full">
                                     <Image
@@ -36,7 +36,7 @@ export function CarouselPlugin() {
                                         alt={`Slide ${index + 1}`}
                                         width={650}  // Set the base width
                                         height={400} // Set the base height
-                                        className="rounded-md h-[150px] sm:h-[350px] md:h-[200px] lg:h-[450px] xl:h-[500px] w-full object-cover"
+                                        className="w-full object-cover  rounded"
                                     />
                                     {/* Position buttons inside the image */}
                                 </CardContent>
@@ -45,8 +45,8 @@ export function CarouselPlugin() {
                     </CarouselItem>
                 ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            {/* <CarouselPrevious />
+            <CarouselNext /> */}
         </Carousel>
     );
 }

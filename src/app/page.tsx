@@ -14,8 +14,10 @@ import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/button";
 import Contact from "@/components/contact";
 import Image from "next/image";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 
-
+import Particles from "@/components/ui/particles";
 const slugs = [
   "typescript",
   "javascript",
@@ -50,9 +52,14 @@ const slugs = [
 ];
 const BLUR_FADE_DELAY = 0.04;
 
-import { useTheme } from "@mui/material/styles";
+
 export default function Page() {
-  
+  const { theme } = useTheme();
+  const [color, setColor] = useState("#ffffff");
+
+  useEffect(() => {
+    setColor(theme === "dark" ? "#ffffff" : "#000000");
+  }, [theme]);
    const handleClick = () => {
     const duration = 5 * 1000;
     const animationEnd = Date.now() + duration;
@@ -82,7 +89,8 @@ export default function Page() {
     }, 250);
   };
   return (
-    <main className="flex flex-col  space-y-10 min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
+    <main className="flex flex-col  space-y-10 min-h-screen  font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
+      
       <section id="banner" className="relative mb-8" >
         <div className="">
           <BlurFade delay={BLUR_FADE_DELAY}>
@@ -103,7 +111,7 @@ export default function Page() {
             </div>
           </BlurFade>
         </div>
-
+     
       </section>
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
@@ -254,7 +262,15 @@ export default function Page() {
       </section>
       <section id="contact">
       <Contact/>
-    </section>
+      </section>
+      
+      <Particles
+        className="absolute inset-0 -z-10  h-[200vh]  "
+        quantity={500}
+        ease={60}
+        color={color}
+        refresh
+      />
     </main>
   );
 }
