@@ -6,8 +6,9 @@ const ParticleDemo = () => {
     const logoRef = useRef<HTMLImageElement | null>(null);
 
     useEffect(() => {
-        // Faqat client-side da scriptlarni yuklaymiz
+        // Shartli tekshiruv faqat brauzerda ishlashini ta'minlaydi
         if (typeof window !== "undefined") {
+            // Scriptlarni faqat brauzerda yuklash
             const script1 = document.createElement("script");
             script1.src = "https://s3-us-west-2.amazonaws.com/s.cdpn.io/23500/nextparticle-documentation.js";
             document.body.appendChild(script1);
@@ -20,6 +21,7 @@ const ParticleDemo = () => {
             script3.src = "https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.6.4/dat.gui.min.js";
             document.body.appendChild(script3);
 
+            // Scriptlar yuklangach
             script3.onload = () => {
                 if (logoRef.current && (window as any).NextParticle) {
                     const nextParticle = new (window as any).NextParticle(logoRef.current, {
@@ -27,6 +29,7 @@ const ParticleDemo = () => {
                         pixelRatio: 2,
                         animation: "bounce",
                     });
+
                     nextParticle.particleGap = 1;
                     nextParticle.noise = 20;
                     nextParticle.mouseForce = 20;
@@ -41,21 +44,21 @@ const ParticleDemo = () => {
                 }
             };
 
-            // Component unmount bo'lganda scriptlarni olib tashlash
+            // Sahifa o'chirilganda scriptlarni olib tashlash
             return () => {
-                if (document.body.contains(script1)) document.body.removeChild(script1);
-                if (document.body.contains(script2)) document.body.removeChild(script2);
-                if (document.body.contains(script3)) document.body.removeChild(script3);
+                document.body.removeChild(script1);
+                document.body.removeChild(script2);
+                document.body.removeChild(script3);
             };
         }
-    }, []);
+    }, []); // `[]` bo'lsa, faqat sahifa yuklanganda bajariladi
 
     return (
         <div>
             <img
                 id="logo"
                 ref={logoRef}
-                src="/Nurbek (500 x 200 px).png"
+                src="/public/Nurbek.png"
                 alt="logo"
                 className="w-full h-auto"
             />
