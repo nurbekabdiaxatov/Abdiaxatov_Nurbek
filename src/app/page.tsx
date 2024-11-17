@@ -16,7 +16,7 @@ import Contact from "@/components/contact";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import Particleimage from "@/components/particleimage";
+// import Particleimage from "@/components/particleimage";
 import Particles from "@/components/ui/particles";
 const slugs = [
   "typescript",
@@ -263,7 +263,7 @@ export default function Page() {
       <section id="contact">
       <Contact/>
       </section>
-      <Particleimage />
+      {/* <Particleimage /> */}
       <Particles
         className="absolute inset-0 -z-10  h-[200vh]  "
         quantity={500}
