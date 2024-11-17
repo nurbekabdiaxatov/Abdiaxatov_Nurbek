@@ -1,10 +1,12 @@
 import { Icons } from "@/components/icons";
 import { HomeIcon, NotebookIcon } from "lucide-react";
-
+import Particleimage from "@/components/particleimage";
 export const DATA = {
   name: "Nurbek Abdiaxatov ",
+  
   initials: "NA",
   url: "https://nurbek-abdiaxatov.vercel.app/",
+  particleimg: <Particleimage />,
   location: "Uzbekistan, Andijon, Bo'ston",
   locationLink: "https://maps.app.goo.gl/Eubd9TkVLZhBkxD16",
   prize: " 🎉",

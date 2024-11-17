@@ -263,7 +263,13 @@ export default function Page() {
       <section id="contact">
       <Contact/>
       </section>
-      <Particleimage /> 
+      <div>
+        {DATA?.particleimg ? (
+          <div>{DATA.particleimg} </div>
+        ) : (
+          <p>No image data available</p>
+        )}
+              </div>
       <Particles
         className="absolute inset-0 -z-10  h-[200vh]  "
         quantity={500}
