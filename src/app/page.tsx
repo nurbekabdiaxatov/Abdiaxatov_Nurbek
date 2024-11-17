@@ -16,7 +16,7 @@ import Contact from "@/components/contact";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-
+import Particleimage from "@/components/particleimage";
 import Particles from "@/components/ui/particles";
 const slugs = [
   "typescript",
@@ -51,7 +51,7 @@ const slugs = [
   "figma",
 ];
 const BLUR_FADE_DELAY = 0.04;
-import Particleimage from "@/components/particleimage";
+
 
 export default function Page() {
   const { theme } = useTheme();
@@ -263,13 +263,7 @@ export default function Page() {
       <section id="contact">
       <Contact/>
       </section>
-      <div>
-        {DATA?.particleimg ? (
-          <div>{DATA.particleimg} </div>
-        ) : (
-          <p>No image data available</p>
-        )}
-              </div>
+      <Particleimage />
       <Particles
         className="absolute inset-0 -z-10  h-[200vh]  "
         quantity={500}
