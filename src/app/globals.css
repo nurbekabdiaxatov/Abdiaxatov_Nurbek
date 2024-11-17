@@ -227,3 +227,18 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+
+
+#logo {
+    display: none;
+}
+
+canvas:nth-child(2) {
+display: none;
+}
+canvas:nth-child(3){
+    position: absolute;
+    top: 49%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}

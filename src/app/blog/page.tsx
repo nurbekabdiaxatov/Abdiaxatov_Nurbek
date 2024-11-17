@@ -32,7 +32,7 @@ export default function Page() {
   }, [theme]);
   return (
     <main className="flex flex-col  space-y-10 min-h-screen  font-sans antialiased max-w-6xl mx-auto py-4 sm:py-4 px-6">
-      
+    
         <div className="">
           <section>
             <CarouselPlugin />
@@ -51,6 +51,7 @@ export default function Page() {
         color={color}
         refresh
       />
+
     </main>
   );
 }

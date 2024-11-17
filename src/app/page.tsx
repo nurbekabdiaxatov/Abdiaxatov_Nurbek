@@ -51,7 +51,7 @@ const slugs = [
   "figma",
 ];
 const BLUR_FADE_DELAY = 0.04;
-
+import Particleimage from "@/components/particleimage";
 
 export default function Page() {
   const { theme } = useTheme();
@@ -263,7 +263,7 @@ export default function Page() {
       <section id="contact">
       <Contact/>
       </section>
-      
+      <Particleimage /> 
       <Particles
         className="absolute inset-0 -z-10  h-[200vh]  "
         quantity={500}
