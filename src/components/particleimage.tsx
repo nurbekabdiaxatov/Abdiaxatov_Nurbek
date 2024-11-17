@@ -35,7 +35,7 @@ const ParticleDemo = () => {
     }, []);
 
     return (
-        <div className="z-50">
+        <div className="relative">
             <img
                 id="logo"
                 ref={logoRef}
