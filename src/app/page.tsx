@@ -266,7 +266,7 @@ export default function Page() {
       {/* <Particleimage /> */}
       <Particles
         className="absolute inset-0 -z-10  h-[250vh]  "
-        quantity={500}
+        quantity={1500}
         ease={30}
         color={color}
         refresh

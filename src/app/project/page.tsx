@@ -91,7 +91,7 @@ export default function Page() {
 
       <Particles
         className="absolute inset-0 -z-10 h-[130vh]  w-full"
-        quantity={800}
+        quantity={1500}
         ease={30}
         color={color}
         refresh
