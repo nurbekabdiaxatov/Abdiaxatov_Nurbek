@@ -146,31 +146,20 @@ code[data-line-numbers-max-digits="3"]>[data-line]::before {
 }
 
 /* Light Theme */
-.product__list::-webkit-scrollbar {
-  height: 2px;
-}
 
-.product__list::-webkit-scrollbar-thumb {
-  background-color: #333;
-}
+
+
 
 body::-webkit-scrollbar {
-  width: 4px;
+  width: 0px;
 }
-
+/* 
 body::-webkit-scrollbar-thumb {
-  background-color: #333;
+  @apply dark:bg-white bg-gray-800; 
   border-radius: 8px;
-}
+} */
 
-.scroll-style::-webkit-scrollbar {
-  width: 2px;
-}
 
-.scroll-style::-webkit-scrollbar-thumb {
-  background-color: #333;
-  border-radius: 8px;
-}
 
 @layer utilities {
   .custom-box-shadow {
@@ -229,3 +218,13 @@ body::-webkit-scrollbar-thumb {
 
 
 
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  @apply dark:bg-white bg-gray-800; 
+  transform-origin: 0%;
+  z-index: 100;
+}
