@@ -89,7 +89,7 @@ export default function Page() {
     }, 250);
   };
   return (
-    <main className="flex flex-col  space-y-10 min-h-screen  font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
+    <main className="flex flex-col  space-y-10 bg-background min-h-screen  font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
       
       <section id="banner" className="relative mb-8" >
         <div className="">
@@ -265,9 +265,9 @@ export default function Page() {
       </section>
       {/* <Particleimage /> */}
       <Particles
-        className="absolute inset-0 -z-10  h-[200vh]  "
+        className="absolute inset-0 -z-10  h-[250vh]  "
         quantity={500}
-        ease={60}
+        ease={30}
         color={color}
         refresh
       />

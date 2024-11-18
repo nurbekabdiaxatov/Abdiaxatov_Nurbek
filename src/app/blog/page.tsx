@@ -34,7 +34,7 @@ export default function Page() {
   }, [theme]);
 
   return (
-    <main className="flex flex-col space-y-10 min-h-screen font-sans antialiased max-w-6xl mx-auto py-4 sm:py-4 px-6">
+    <main className="flex flex-col space-y-10  bg-background min-h-screen font-sans antialiased max-w-6xl mx-auto py-4 sm:py-4 px-6">
       <div className="">
         <section>
           <FramerCarousel /> {/* This should now work */}
@@ -45,9 +45,9 @@ export default function Page() {
       </div>
 
       <Particles
-        className="absolute inset-0 -z-10 h-[100vh]"
-        quantity={500}
-        ease={60}
+        className="absolute inset-0 -z-10 h-[130vh]  w-full"
+        quantity={800}
+        ease={30}
         color={color}
         refresh
       />
