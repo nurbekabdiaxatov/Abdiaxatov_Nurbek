@@ -24,8 +24,8 @@ export default function Page() {
   }, [theme]);
 
   useEffect(() => {
-    // Ensure Swapy only runs in the browser
-    if (typeof window !== "undefined") {
+    // Only run Swapy if the screen width is larger than 768px (typically desktops)
+    if (typeof window !== "undefined" && window.innerWidth > 768) {
       const container = document.querySelector('.projects-container');
       if (container) {
         const swapy = createSwapy(container, {
@@ -41,6 +41,8 @@ export default function Page() {
       } else {
         console.warn("Swapy container not found");
       }
+    } else {
+      console.log("Swapy is disabled on mobile screens");
     }
   }, []); // Empty dependency array ensures this runs once after the component mounts
 
@@ -66,7 +68,7 @@ export default function Page() {
 
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto projects-container cursor-grab">
             {DATA.projects.map((project, id) => (
-              <BlurFade key={ id} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+              <BlurFade key={id} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                 <div data-swapy-slot={`project-${id}`} className="flex flex-col h-full">
                   <div data-swapy-item={`item-${id}`} className="flex-1 flex flex-col justify-between">
                     <ProjectCard
@@ -83,9 +85,6 @@ export default function Page() {
                 </div>
               </BlurFade>
             ))}
-
-
-
           </div>
         </div>
       </section>
