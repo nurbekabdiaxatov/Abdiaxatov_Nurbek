@@ -64,10 +64,9 @@ export default function Page() {
             </div>
           </BlurFade>
 
-          {/* Wrap the projects in a container with a class for Swapy */}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto projects-container cursor-grab">
             {DATA.projects.map((project, id) => (
-              <BlurFade key={project.id || id} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
+              <BlurFade key={ id} delay={BLUR_FADE_DELAY * 12 + id * 0.05}>
                 <div data-swapy-slot={`project-${id}`} className="flex flex-col h-full">
                   <div data-swapy-item={`item-${id}`} className="flex-1 flex flex-col justify-between">
                     <ProjectCard
@@ -84,6 +83,9 @@ export default function Page() {
                 </div>
               </BlurFade>
             ))}
+
+
+
           </div>
         </div>
       </section>
