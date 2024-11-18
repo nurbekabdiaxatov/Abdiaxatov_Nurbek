@@ -17,7 +17,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 // import Particleimage from "@/components/particleimage";
-import Particles from "@/components/ui/particles";
+
+
 const slugs = [
   "typescript",
   "javascript",
@@ -37,7 +38,6 @@ const slugs = [
   "firebase",
   "nginx",
   "vercel",
-  "testinglibrary",
   "jest",
   "cypress",
   "docker",
@@ -46,10 +46,10 @@ const slugs = [
   "github",
   "gitlab",
   "visualstudiocode",
-  "androidstudio",
-  "sonarqube",
   "figma",
 ];
+
+import Particles from "@/components/ui/particles";
 const BLUR_FADE_DELAY = 0.04;
 
 
@@ -162,9 +162,9 @@ export default function Page() {
                 <Badge key={skill}>{skill}</Badge>
               </BlurFade>
             ))}
-      <div className="  m-auto   max-w-[32rem]   bg-background px-20   ">
-      <IconCloud iconSlugs={slugs} />
-    </div>
+            <div className="  m-auto   max-w-[32rem]   bg-background px-20   ">
+              <IconCloud iconSlugs={slugs} />
+            </div>
           </div>
         </div>
       </section>
