@@ -97,7 +97,7 @@ const Home = () => {
             {/* Bloglar ro'yxatini tekshirish */}
             {blogs.length === 0 ? (
                 <p className="text-gray-500 text-center">
-                    Hozircha hech qanday blog qo'shilmagan. Keyinroq qayta urinib ko'ring.
+                    Hozircha hech qanday blog qo`shilmagan. Keyinroq qayta urinib ko`ring.
                 </p>
             ) : (
                 // Agar bloglar bo'lsa, ularni ro'yxatda ko'rsatish
