@@ -558,24 +558,25 @@ export const ThumsSlider: React.FC<any> = () => {
     return (
         <div className=" overflow-hidden mt-2" ref={emblaThumbsRef}>
             <div className="flex flex-row gap-2">
-                {slidesrArr?.map((slide: any, index: any) => (
-                    <div
-                        className={`min-w-0 w-full xl:h-24 aspect-auto border-2  rounded-md ${index === selectedIndex
-                                ? '  opacity-100'
-                                : 'border-transparent opacity-30 '
-                            }`}
-                        style={{ flex: `0 0 15%` }}
-                        onClick={() => onThumbClick(index)}
-                    >
-                        <motion.img
-                            src={slide}
-                            className="w-full h-full object-cover rounded-sm"
-                            width={400}
-                            height={400}
-                            alt="image"
-                        />
-                    </div>
-                ))}
+{slidesrArr?.map((slide: any, index: any) => (
+    <div
+        key={index} // Add a unique key prop
+        className={`min-w-0 w-full xl:h-24 aspect-auto border-2  rounded-md ${index === selectedIndex
+                ? '  opacity-100'
+                : 'border-transparent opacity-30 '
+            }`}
+        style={{ flex: `0 0 15%` }}
+        onClick={() => onThumbClick(index)}
+    >
+        <motion.img
+            src={slide}
+            className="w-full h-full object-cover rounded-sm"
+            width={400}
+            height={400}
+            alt="image"
+        />
+    </div>
+))}
             </div>
         </div>
     )
