@@ -54,32 +54,37 @@
 //     </main>
 //   );
 // }
+
 "use client";
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const Home = () => {
-    const [blogs, setBlogs] = useState<{ id: string; title: string; content: string; author: string; date: string }[]>([]);
+    const [blogs, setBlogs] = useState<
+        { id: string; title: string; content: string; author: string; date: string }[]
+    >([]);
 
     // Fetching the blogs from Firestore
     useEffect(() => {
         const blogsRef = collection(db, "blogs");
 
-        const unsubscribe = onSnapshot(blogsRef, (snapshot) => {
-  const blogsData = snapshot.docs.map(doc => ({
-    id: doc.id,
-    title: doc.data().title || '',
-    content: doc.data().content || '',
-    author: doc.data().author || '',
-    date: doc.data().date || '',
-  }));
+        try {
+            const unsubscribe = onSnapshot(blogsRef, (snapshot) => {
+                const blogsData = snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    title: doc.data().title || "",
+                    content: doc.data().content || "",
+                    author: doc.data().author || "",
+                    date: doc.data().date || "",
+                }));
+                setBlogs(blogsData);
+            });
 
-            setBlogs(blogsData);
-        });
-
-        // Clean up the subscription on component unmount
-        return () => unsubscribe();
+            return () => unsubscribe();
+        } catch (error) {
+            console.error("Bloglarni olishda xato yuz berdi:", error);
+        }
     }, []);
 
     return (
@@ -88,14 +93,20 @@ const Home = () => {
 
             {/* Bloglar ro'yxati */}
             {blogs.length === 0 ? (
-                <p className="text-gray-500">Hech qanday blog mavjud emas!</p>
+                <p className="text-gray-500 text-center">
+                    Hozircha hech qanday blog qo'shilmagan. Keyinroq qayta urinib ko'ring.
+                </p>
             ) : (
                 blogs.map((blog) => (
-                    <div key={blog.id} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-                        <h2 className="text-xl font-bold">{blog.title}</h2>
+                    <div
+                        key={blog.id}
+                        className="bg-white shadow-md rounded-lg px-8 pt-6 pb-8 mb-4 hover:shadow-lg transition-shadow duration-300"
+                    >
+                        <h2 className="text-xl font-bold text-blue-600">{blog.title}</h2>
                         <p className="text-gray-700">{blog.content}</p>
                         <small className="text-gray-500">
-                            Muallif: {blog.author} | Sana: {new Date(blog.date).toLocaleDateString()}
+                            Muallif: {blog.author} | Sana:{" "}
+                            {blog.date ? new Date(blog.date).toLocaleDateString() : "Sana mavjud emas"}
                         </small>
                     </div>
                 ))

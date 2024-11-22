@@ -1,8 +1,7 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';  // Import the authentication module
 import { getFirestore } from 'firebase/firestore';  // Firestore module
-import { getAnalytics } from 'firebase/analytics';
+import { getAnalytics, isSupported } from 'firebase/analytics';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -21,8 +20,15 @@ const app = initializeApp(firebaseConfig);
 // Initialize other services
 const auth = getAuth(app);  // Authentication instance
 const db = getFirestore(app);  // Firestore instance
-const analytics = getAnalytics(app);  // Analytics instance
+
+// Conditionally initialize Firebase Analytics if supported
+let analytics;
+if (typeof window !== 'undefined') {
+  const supported = await isSupported();
+  if (supported) {
+    analytics = getAnalytics(app);  // Analytics instance, only initialized on the client-side
+  }
+}
 
 // Export the instances
 export { auth, db, analytics };
-
