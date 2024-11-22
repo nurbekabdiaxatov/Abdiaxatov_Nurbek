@@ -54,23 +54,25 @@
 //     </main>
 //   );
 // }
-
 "use client";
 import React, { useState, useEffect } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
 const Home = () => {
+    // Bloglar ro'yxatini saqlash uchun useState hook
     const [blogs, setBlogs] = useState<
         { id: string; title: string; content: string; author: string; date: string }[]
     >([]);
 
-    // Fetching the blogs from Firestore
+    // Firebase Firestore'dan bloglarni olish uchun useEffect hook
     useEffect(() => {
         const blogsRef = collection(db, "blogs");
 
         try {
+            // onSnapshot yordamida Firestore'dan real-time ma'lumot olish
             const unsubscribe = onSnapshot(blogsRef, (snapshot) => {
+                // Snapshot'dan blog ma'lumotlarini olish
                 const blogsData = snapshot.docs.map((doc) => ({
                     id: doc.id,
                     title: doc.data().title || "",
@@ -78,25 +80,27 @@ const Home = () => {
                     author: doc.data().author || "",
                     date: doc.data().date || "",
                 }));
-                setBlogs(blogsData);
+                setBlogs(blogsData); // Blogs ro'yxatini yangilash
             });
 
+            // Unsubscribe qilish uchun tozalash funksiyasi
             return () => unsubscribe();
         } catch (error) {
             console.error("Bloglarni olishda xato yuz berdi:", error);
         }
-    }, []);
+    }, []); // Faqat komponent birinchi marta yuklanganda ishlaydi
 
     return (
         <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Bloglar</h1>
 
-            {/* Bloglar ro'yxati */}
+            {/* Bloglar ro'yxatini tekshirish */}
             {blogs.length === 0 ? (
                 <p className="text-gray-500 text-center">
                     Hozircha hech qanday blog qo'shilmagan. Keyinroq qayta urinib ko'ring.
                 </p>
             ) : (
+                // Agar bloglar bo'lsa, ularni ro'yxatda ko'rsatish
                 blogs.map((blog) => (
                     <div
                         key={blog.id}
@@ -105,8 +109,7 @@ const Home = () => {
                         <h2 className="text-xl font-bold text-blue-600">{blog.title}</h2>
                         <p className="text-gray-700">{blog.content}</p>
                         <small className="text-gray-500">
-                            Muallif: {blog.author} | Sana:{" "}
-                            {blog.date ? new Date(blog.date).toLocaleDateString() : "Sana mavjud emas"}
+                            {blog.author} | {blog.date}
                         </small>
                     </div>
                 ))
