@@ -105,8 +105,8 @@ const Home = () => {
     const OPTIONS: EmblaOptionsType = { loop: true };
 
     return (
-        <main className="flex flex-col bg-background space-y-10 min-h-screen font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-6">
-            <div className="container mx-auto p-4">
+        <main className="flex flex-col bg-background space-y-10 min-h-screen font-sans antialiased max-w-2xl mx-auto py-4 sm:py-4 px-2">
+            <div className="container mx-auto p-2">
                 <h1 className="text-2xl font-bold mb-4 text-center">Bloglar</h1>
 
                 {blogs.length === 0 ? (
@@ -137,7 +137,7 @@ const BlogCard = ({
     const shortContent = blog.content.slice(0, 150);
 
     return (
-        <div className="shadow-md rounded-lg p-4 mb-8 hover:shadow-lg transition-shadow duration-300">
+        <div className="shadow-md rounded-lg p-4 mb-8  transition-shadow duration-300 dark:shadow-zinc-800   ">
             <h2 className="text-xl font-bold">{blog.title}</h2>
             <p
                 className={` ${expanded ? "max-h-full" : "max-h-24 overflow-hidden"
@@ -166,13 +166,13 @@ const BlogCard = ({
                     <SliderContainer className="gap-1">
                         {images.map((imageSrc, index) => (
                             <Slider key={index} className="w-full">
-                                <div className="dark:bg-background bg-white w-full">
+                                <div className="dark:bg-background bg-white w-full ">
                                     <Image
                                         src={imageSrc}
                                         width={1000}
                                         height={800}
                                         alt={`Image ${index + 1}`}
-                                        className="object-cover rounded-lg h-64 w-5/5 mx-auto"
+                                        className="object-cover rounded-lg h-64 w-5/5 mx-auto   "
                                     />
                                 </div>
                             </Slider>
@@ -185,13 +185,13 @@ const BlogCard = ({
             </section>
             <section>
                 <div className="flex justify-between items-center">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 ">
                     <Image
                         src="/logo.png"
                         width={40}
                         height={40}
                         alt="Avatar"
-                        className="object-cover rounded-lg"
+                        className="object-cover rounded-lg "
                     />
                     <small className="text-gray-500">
                         {blog.author} <br />
