@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/N.png" />
+        <link rel="icon" href="/logo.png" />
       </head>
       <body
         className={cn(
