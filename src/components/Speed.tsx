@@ -10,7 +10,7 @@ import Tel from '@mui/icons-material/Phone';
 import DescriptionIcon from '@mui/icons-material/Description';
 
 const actions = [
-    { icon: <DescriptionIcon />, name: 'Resume', url: "https://drive.google.com/file/d/1wYWYQWIGVN5NBzwLsgT8wodFDkx8jiY8/view?usp=sharing" },
+    { icon: <DescriptionIcon />, name: 'Resume', url: "https://drive.google.com/file/d/1fr9q57wh8L3GBhwjxCphjvv6bCFYbjQn/view" },
     { icon: <Telegram />, name: 'Telegram', url: "https://t.me/Abdiaxatov" },
     { icon: <Email />, name: 'Email', url: "mailto:abduaxatov007@gmail.com" },
     { icon: <Tel />, name: 'Phone', url: "tel:+998940192117" }
